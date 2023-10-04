@@ -1,25 +1,18 @@
 ﻿@page "/"
 
-
 <SfMaps>
-    <MapsTitleSettings Text="Covid-19 Affected Countries">
-    </MapsTitleSettings>
+    <MapsTitleSettings Text="Covid 19 Affected Countries"></MapsTitleSettings>
     <MapsLayers>
-        <MapsLayer ShapeData="@MapShapeData" DataSource="@StatusDetails"
-             ShapePropertyPath='@("name")' ShapeDataPath="Name">
+        <MapsLayer ShapeData="@MapShapeData" DataSource="@StatusDetails" ShapePropertyPath='new string[]{"name"}' 
+        ShapeDataPath="Name" TValue="CountryData">
             <MapsLegendSettings Visible="true"></MapsLegendSettings>
-            <MapsLayerTooltipSettings Visible="true" ValuePath="Name">
-            </MapsLayerTooltipSettings>
-            <MapsDataLabelSettings Visible="true" LabelPath="Name">
-            </MapsDataLabelSettings>
+            <MapsLayerTooltipSettings Visible="true" ValuePath="Name"></MapsLayerTooltipSettings>
+            <MapsDataLabelSettings Visible="true" LabelPath="Name"></MapsDataLabelSettings>
             <MapsShapeSettings ColorValuePath="SeverityLevel" Fill="#E5E5E5">
                 <MapsShapeColorMappings>
-                    <MapsShapeColorMapping Color="@("#a69d70")" Value="High">
-                    </MapsShapeColorMapping>
-                    <MapsShapeColorMapping Color="@("#A4D6AD")" Value="Moderate">
-                    </MapsShapeColorMapping>
-                    <MapsShapeColorMapping Color="@("#DEEBAE")" Value="Low">
-                    </MapsShapeColorMapping>
+                    <MapsShapeColorMapping Color='new string[] {"#a69d70"}' Value="High"></MapsShapeColorMapping>
+                    <MapsShapeColorMapping Color='new string[] {"#A4D6AD"}' Value="Moderate"></MapsShapeColorMapping>
+                    <MapsShapeColorMapping Color='new string[] {"#DEEBAE"}' Value="Low"></MapsShapeColorMapping>
                 </MapsShapeColorMappings>
             </MapsShapeSettings>
         </MapsLayer>
@@ -60,10 +53,11 @@
         public String type { get; set; }
     }
     public MapDataSettings MapShapeData = new MapDataSettings
-    {
-        async = true,
-        type = "GET",
-        dataOptions = "scripts/MapsData/world-map.json"
-    };
+        {
+            async = true,
+            type = "GET",
+            dataOptions = "scripts/MapsData/world-map.json"
+        };
 
 }
+
